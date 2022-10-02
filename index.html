@@ -1,0 +1,1782 @@
+
+<!-- <!DOCTYPE html> -->
+<html>
+    
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+
+<!-- <head>
+<meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-family: Arial;
+}
+
+/* Center website */
+.main {
+  max-width: 1500px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 10px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  display: none; /* Hide all elements by default */
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+    
+
+#hcg-slider-1 .hcg-slide-container {
+	width: auto;
+	height: auto;
+}
+.hcg-slider {
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.hcg-slide-container {
+	max-width: 100%;
+	display: inline-block;
+	position: relative;
+}
+.hcg-slides {
+	display: none;
+	text-align: center;
+	overflow: hidden;
+}
+.hcg-slides img {
+	max-width: 100%;
+	max-height: 100%;
+	display: inline-block;
+	border-radius: 5px;
+	/* border: solid 1px #a0a0a0; */
+  border: None;
+	vertical-align: middle;
+}
+.hcg-slide-text {
+	/* /* color: #ffffff; */
+  color: #696767;
+	font-size: 14px;
+	padding: 3px 5px;
+	position: absolute;
+	bottom: 0;
+	border-radius: 5px;
+	left: 50%;
+	  
+	/* text-shadow: 0 0 2px #000; */
+	background-color: rgba(255,255,255,0.30);
+	display: inline-block;
+	transform: translate(-50%, -5px);
+}
+.hcg-slide-prev, .hcg-slide-next {
+	cursor: pointer;
+	position: absolute;
+	top: 80%;
+	width: auto;
+	padding: 16px;
+	margin-top: -22px;
+	color: rgb(109, 108, 108);
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	text-decoration: none;
+}
+.hcg-slide-next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+.hcg-slide-prev {
+	left: 0;
+	border-radius: 0 3px 3px 0;
+}
+.hcg-slide-prev:hover, .hcg-slide-next:hover {
+	background-color: #000c;
+}
+.hcg-slide-dot-control {
+	margin-top: 10px;
+	text-align: center;
+}
+.hcg-slide-dot {
+	cursor: pointer;
+	height: 13px;
+	width: 13px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+}
+.hcg-slide-dot.dot-active {
+	background-color: #717171;
+}
+.hcg-slide-number {
+	color: #ffffff;
+	font-size: 12px;
+	padding: 4px 7px;
+	position: absolute;
+	border-radius: 5px;
+	top: 5px;
+	left: 5px;
+	background-color: rgba(255,255,255,0.30);
+}
+ </style>
+
+</head>
+<body>
+
+<!-- MAIN (Center website) -->
+<div class="main">
+
+<h1>ssl_sing_id</h1>
+<hr>
+	
+<!-- <div id="hcg-slider-1" class="hcg-slider">
+  <div class="hcg-slide-container">
+    <div class="hcg-slider-body">
+		<a class="hcg-slides animated" style="display:block">
+			<span class="hcg-slide-number">1/5</span>
+			<img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+			<span class="hcg-slide-text">image 5</span>
+		</a>
+	</div>
+	<a class="hcg-slide-prev" href="#">❮</a>
+	<a class="hcg-slide-next" href="#">❯</a>
+</div>
+<div class="hcg-slide-dot-control"></div>
+</div> -->
+
+
+
+
+<h2>Speaker embeddings</h2>
+
+<div id="myBtnContainer">
+  <!-- <button class="btn active" onclick="filterSelection('all')"> Show all</button> -->
+  <button class="btn active" onclick="filterSelection('ge2e')"> GE2E</button>
+  <button class="btn" onclick="filterSelection('ecapa')"> ECAPA-TDNN</button>
+  <button class="btn" onclick="filterSelection('unifonly')"> UNIF</button>
+  <button class="btn" onclick="filterSelection('contunsup')"> CONT-UNSUP</button>
+  <button class="btn" onclick="filterSelection('contsup')"> CONT-SUP</button>
+  <button class="btn" onclick="filterSelection('contnopre')"> CONT-NOPRE</button>
+<button class="btn" onclick="filterSelection('vicreg')"> VICREG</button>
+<button class="btn" onclick="filterSelection('contreg')"> CONT-VCREG</button>
+<button class="btn" onclick="filterSelection('wav2vec')"> Wav2Vec2.0</button>
+<button class="btn" onclick="filterSelection('contform')"> CONT-FORM</button>
+<button class="btn" onclick="filterSelection('contattform')"> CONT-ATT-FORM</button>
+
+</div>
+
+<!-- Portfolio Gallery Grid -->
+<div class="row">
+  <div class="column ge2e">
+    <h4>VCTK</h4>
+    <div class="content">
+      <h5>Embeddings</h5>
+      <img src="images/exp_ge2e/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_0_drawmode_same_group.png" alt="Car" style="width:100%">
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+
+  <div class="column ge2e">
+    <h4>Vocalset</h4>
+    <div class="content">
+      <h5>Projection</h5>
+      <img src="images/exp_ge2e/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_0_drawmode_same_group.png" alt="Car" style="width:100%">
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+ 
+  <!-- -------------------------- ----------------------------------------------------------------------------------- -->
+
+  <div class="column ecapa">
+    <h4>VCTK</h4>
+      <div class="content">
+      <div id="hcg-slider-ecapa-vctk" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4>Retro</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+
+  <div class="column ecapa">
+    <h4>Vocalset</h4>
+      <div class="content">
+      <div id="hcg-slider-ecapa-vocalset" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4>Fast</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+
+
+<!-- -------------------------- ----------------------------------------------------------------------------------- -->
+    
+    
+   <div class="column unifonly">
+    <h4>VCTK</h4>
+      <div class="content">
+      <h5>Embeddings</h5>
+      <div id="hcg-slider-unifonly-vctk" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      
+    </div>
+  </div>
+  <div class="column unifonly">
+    <h4>Vocalset</h4>
+      <div class="content">
+      <h5>Embeddings</h5>
+     <div id="hcg-slider-unifonly-vocalset" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <!-- <h4>Man</h4> -->
+    </div>
+  </div>
+
+  <div class="column unifonly">
+    <!-- <h4>VCTK</h4> -->
+      <div class="content">
+    <h5>Projections</h5>
+      <div id="hcg-slider-unifonly-vctk-proj" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Girl</h4> --></h4>
+    </div>
+  </div>
+  <div class="column unifonly">
+    <!-- <h4>VCTK</h4> -->
+      <div class="content">
+    <h5>Projections</h5>
+     <div id="hcg-slider-unifonly-vocalset-proj" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Man</h4> --></h4>
+    </div>
+  </div>
+    
+<!-- -------------------------- ----------------------------------------------------------------------------------- -->
+  
+  <div class="column contunsup">
+    <h4>VCTK</h4>
+      <div class="content">
+    <h5>Embeddings</h5>
+       <div id="hcg-slider-contunsup-vctk" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Girl</h4> --></h4>
+    </div>
+  </div>
+  <div class="column contunsup">
+    <h4>Vocalset</h4>
+    <div class="content">
+    <h5>Embeddings</h5>
+     <div id="hcg-slider-contunsup-vocalset" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Man</h4> --></h4>
+    </div>
+  </div>
+
+  <div class="column contunsup">
+    <!-- <h4>VCTK</h4> -->
+    <div class="content">
+    <h5>Projections</h5>
+       <div id="hcg-slider-contunsup-vctk-proj" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Girl</h4> --></h4>
+    </div>
+  </div>
+  <div class="column contunsup">
+    <!-- <h4>VCTK</h4> -->
+    <div class="content">
+    <h5>Projections</h5>
+     <div id="hcg-slider-contunsup-vocalset-proj" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Man</h4> --></h4>
+    </div>
+  </div>
+
+<!-- -------------------------- ----------------------------------------------------------------------------------- -->
+
+
+  <div class="column contsup">
+    <h4>VCTK</h4>
+    <div class="content">
+    <h5>Embeddings</h5>
+       <div id="hcg-slider-contsup-vctk" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Girl</h4> --></h4>
+    </div>
+  </div>
+  <div class="column contsup">
+    <h4>Vocalset</h4>
+    <div class="content">
+    <h5>Embeddings</h5>
+     <div id="hcg-slider-contsup-vocalset" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Man</h4> --></h4>
+    </div>
+  </div>
+
+  <div class="column contsup">
+    <!-- <h4>VCTK</h4> -->
+    <div class="content">
+    <h5>Projections</h5>
+       <div id="hcg-slider-contsup-vctk-proj" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Girl</h4> --></h4>
+    </div>
+  </div>
+  <div class="column contsup">
+    <!-- <h4>VCTK</h4> -->
+    <div class="content">
+    <h5>Projections</h5>
+     <div id="hcg-slider-contsup-vocalset-proj" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Man</h4> --></h4>
+    </div>
+  </div>
+
+ <!-- -------------------------- ----------------------------------------------------------------------------------- -->
+
+
+  <div class="column contnopre">
+    <h4>VCTK</h4>
+    <div class="content">
+    <h5>Embeddings</h5>
+       <div id="hcg-slider-contnopre-vctk" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Girl</h4> --></h4>
+    </div>
+  </div>
+  <div class="column contnopre">
+    <h4>Vocalset</h4>
+    <div class="content">
+    <h5>Embeddings</h5>
+     <div id="hcg-slider-contnopre-vocalset" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Man</h4> --></h4>
+    </div>
+  </div>
+
+  <div class="column contnopre">
+    <!-- <h4>VCTK</h4> -->
+    <div class="content">
+    <h5>Projections</h5>
+       <div id="hcg-slider-contnopre-vctk-proj" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Girl</h4> --></h4>
+    </div>
+  </div>
+  <div class="column contnopre">
+    <!-- <h4>VCTK</h4> -->
+    <div class="content">
+    <h5>Projections</h5>
+     <div id="hcg-slider-contnopre-vocalset-proj" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Man</h4> --></h4>
+    </div>
+  </div>
+
+<!-- -------------------------- ----------------------------------------------------------------------------------- -->
+
+
+   <div class="column vicreg">
+    <h4>VCTK</h4>
+    <div class="content">
+    <h5>Embeddings</h5>
+       <div id="hcg-slider-vicreg-vctk" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Girl</h4> --></h4>
+    </div>
+  </div>
+  <div class="column vicreg">
+    <h4>Vocalset</h4>
+    <div class="content">
+    <h5>Embeddings</h5>
+     <div id="hcg-slider-vicreg-vocalset" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Man</h4> --></h4>
+    </div>
+  </div>
+
+  <div class="column vicreg">
+    <!-- <h4>VCTK</h4> -->
+    <div class="content">
+    <h5>Projections</h5>
+       <div id="hcg-slider-vicreg-vctk-proj" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Girl</h4> --></h4>
+    </div>
+  </div>
+  <div class="column vicreg">
+    <!-- <h4>VCTK</h4> -->
+    <div class="content">
+    <h5>Projections</h5>
+     <div id="hcg-slider-vicreg-vocalset-proj" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Man</h4> --></h4>
+    </div>
+  </div>
+<!-- -------------------------- ----------------------------------------------------------------------------------- -->
+
+   <div class="column contreg">
+    <h4>VCTK</h4>
+    <div class="content">
+    <h5>Embeddings</h5>
+       <div id="hcg-slider-contreg-vctk" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Girl</h4> --></h4>
+    </div>
+  </div>
+  <div class="column contreg">
+    <h4>Vocalset</h4>
+    <div class="content">
+    <h5>Embeddings</h5>
+     <div id="hcg-slider-contreg-vocalset" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Man</h4> --></h4>
+    </div>
+  </div>
+
+  <div class="column contreg">
+    <!-- <h4>VCTK</h4> -->
+    <div class="content">
+    <h5>Projections</h5>
+       <div id="hcg-slider-contreg-vctk-proj" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Girl</h4> --></h4>
+    </div>
+  </div>
+  <div class="column contreg">
+    <!-- <h4>VCTK</h4> -->
+    <div class="content">
+    <h5>Projections</h5>
+     <div id="hcg-slider-contreg-vocalset-proj" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Man</h4> --></h4>
+    </div>
+  </div>
+<!-- -------------------------- ----------------------------------------------------------------------------------- -->
+
+  <div class="column wav2vec">
+    <h4>VCTK</h4>
+    <div class="content">
+    <h5>Embeddings</h5>
+       <div id="hcg-slider-wav2vec-vctk" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Girl</h4> --></h4>
+    </div>
+  </div>
+  <div class="column wav2vec">
+    <h4>Vocalset</h4>
+    <div class="content">
+    <h5>Embeddings</h5>
+     <div id="hcg-slider-wav2vec-vocalset" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Man</h4> --></h4>
+    </div>
+  </div>
+  
+  <!-- -------------------------- ----------------------------------------------------------------------------------- -->
+
+    
+  <div class="column contform">
+    <h4>VCTK</h4>
+    <div class="content">
+    <h5>Embeddings</h5>
+       <div id="hcg-slider-contform-vctk" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Girl</h4> --></h4>
+    </div>
+  </div>
+  <div class="column contform">
+    <h4>Vocalset</h4>
+    <div class="content">
+    <h5>Embeddings</h5>
+     <div id="hcg-slider-contform-vocalset" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Man</h4> --></h4>
+    </div>
+  </div>
+
+  <div class="column contform">
+    <!-- <h4>VCTK</h4> -->
+    <div class="content">
+    <h5>Projections</h5>
+       <div id="hcg-slider-contform-vctk-proj" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Girl</h4> --></h4>
+    </div>
+  </div>
+  <div class="column contform">
+    <!-- <h4>VCTK</h4> -->
+    <div class="content">
+    <h5>Projections</h5>
+     <div id="hcg-slider-contform-vocalset-proj" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Man</h4> --></h4>
+    </div>
+  </div>
+    
+<!-- -------------------------- ----------------------------------------------------------------------------------- -->
+
+   
+   <div class="column contattform">
+    <h4>VCTK</h4>
+    <div class="content">
+    <h5>Embeddings</h5>
+       <div id="hcg-slider-contattform-vctk" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Girl</h4> --></h4>
+    </div>
+  </div>
+  <div class="column contattform">
+    <h4>Vocalset</h4>
+    <div class="content">
+    <h5>Embeddings</h5>
+     <div id="hcg-slider-contattform-vocalset" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Man</h4> --></h4>
+    </div>
+  </div>
+
+
+  <div class="column contattform">
+    <!-- <h4>VCTK</h4> -->
+    <div class="content">
+    <h5>Projections</h5>
+       <div id="hcg-slider-contattform-vctk-proj" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Girl</h4> --></h4>
+    </div>
+  </div>
+  <div class="column contattform">
+    <!-- <h4>VCTK</h4> -->
+    <div class="content">
+    <h5>Projections</h5>
+     <div id="hcg-slider-contattform-vocalset-proj" class="hcg-slider">
+        <div class="hcg-slide-container">
+          <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:block">
+              <span class="hcg-slide-number">1/5</span>
+              <img src="https://www.html-code-generator.com/images/slider/5.png" alt="image 5">
+              <span class="hcg-slide-text">image 5</span>
+            </a>
+          </div>
+          <a class="hcg-slide-prev" href="#">❮</a>
+          <a class="hcg-slide-next" href="#">❯</a>
+        </div>
+        <div class="hcg-slide-dot-control"></div>
+        </div>
+      <h4><!-- <h4>Man</h4> --></h4>
+    </div>
+  </div>
+<!-- END GRID -->
+</div>
+
+<!-- END PORTFOLIO -->
+<hr>
+<h2>Speaker similarities</h2>
+
+
+<!-- END MAIN -->
+</div>
+
+<script>
+filterSelection("ge2e")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+
+
+(function(){
+//If you want to include more images, add the link name and URL of the image in the array list below.
+	let images_list = [[
+  {"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_11_drawmode_same_group.png" , "name": "Epoch_11", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_24_drawmode_same_group.png" , "name": "Epoch_24", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_74_drawmode_same_group.png" , "name": "Epoch_74", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_165_drawmode_same_group.png" , "name": "Epoch_165", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_224_drawmode_same_group.png" , "name": "Epoch_224", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_299_drawmode_same_group.png" , "name": "Epoch_299", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_374_drawmode_same_group.png" , "name": "Epoch_374", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_440_drawmode_same_group.png" , "name": "Epoch_440", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_499_drawmode_same_group.png" , "name": "Epoch_499", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_599_drawmode_same_group.png" , "name": "Epoch_599", "link":""}
+],
+
+    [
+		{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_11_drawmode_same_group.png" , "name": "Epoch_11", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_24_drawmode_same_group.png" , "name": "Epoch_24", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_74_drawmode_same_group.png" , "name": "Epoch_74", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_165_drawmode_same_group.png" , "name": "Epoch_165", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_224_drawmode_same_group.png" , "name": "Epoch_224", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_299_drawmode_same_group.png" , "name": "Epoch_299", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_374_drawmode_same_group.png" , "name": "Epoch_374", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_440_drawmode_same_group.png" , "name": "Epoch_440", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_499_drawmode_same_group.png" , "name": "Epoch_499", "link":""},
+{"url": "images/exp_contrastive_ecapa/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_599_drawmode_same_group.png" , "name": "Epoch_599", "link":""}
+    ],
+
+    [
+		{"url": "images/exp_uniformity/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_24_drawmode_same_group.png" , "name": "Epoch_24", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_74_drawmode_same_group.png" , "name": "Epoch_74", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_174_drawmode_same_group.png" , "name": "Epoch_174", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_224_drawmode_same_group.png" , "name": "Epoch_224", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_249_drawmode_same_group.png" , "name": "Epoch_249", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_295_drawmode_same_group.png" , "name": "Epoch_295", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_324_drawmode_same_group.png" , "name": "Epoch_324", "link":""}
+    ],
+
+    [
+		{"url": "images/exp_uniformity/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_24_drawmode_same_group.png" , "name": "Epoch_24", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_74_drawmode_same_group.png" , "name": "Epoch_74", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_174_drawmode_same_group.png" , "name": "Epoch_174", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_224_drawmode_same_group.png" , "name": "Epoch_224", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_249_drawmode_same_group.png" , "name": "Epoch_249", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_295_drawmode_same_group.png" , "name": "Epoch_295", "link":""},
+{"url": "images/exp_uniformity/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_324_drawmode_same_group.png" , "name": "Epoch_324", "link":""}
+    ],
+
+    [
+		{"url": "images/exp_contrastive_same_clip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_249_drawmode_same_group.png" , "name": "Epoch_249", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_299_drawmode_same_group.png" , "name": "Epoch_299", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_335_drawmode_same_group.png" , "name": "Epoch_335", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_349_drawmode_same_group.png" , "name": "Epoch_349", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_416_drawmode_same_group.png" , "name": "Epoch_416", "link":""}
+    ],
+
+    [
+		{"url": "images/exp_contrastive_same_clip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_249_drawmode_same_group.png" , "name": "Epoch_249", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_299_drawmode_same_group.png" , "name": "Epoch_299", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_335_drawmode_same_group.png" , "name": "Epoch_335", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_349_drawmode_same_group.png" , "name": "Epoch_349", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_416_drawmode_same_group.png" , "name": "Epoch_416", "link":""}
+    ],
+
+    [
+		{"url": "images/exp_contrastive/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_contrastive/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_contrastive/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_249_drawmode_same_group.png" , "name": "Epoch_249", "link":""},
+{"url": "images/exp_contrastive/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_299_drawmode_same_group.png" , "name": "Epoch_299", "link":""},
+{"url": "images/exp_contrastive/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_349_drawmode_same_group.png" , "name": "Epoch_349", "link":""},
+{"url": "images/exp_contrastive/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_399_drawmode_same_group.png" , "name": "Epoch_399", "link":""},
+{"url": "images/exp_contrastive/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_405_drawmode_same_group.png" , "name": "Epoch_405", "link":""}
+    ],
+
+    [
+		{"url": "images/exp_contrastive/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_contrastive/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_contrastive/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_249_drawmode_same_group.png" , "name": "Epoch_249", "link":""},
+{"url": "images/exp_contrastive/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_299_drawmode_same_group.png" , "name": "Epoch_299", "link":""},
+{"url": "images/exp_contrastive/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_349_drawmode_same_group.png" , "name": "Epoch_349", "link":""},
+{"url": "images/exp_contrastive/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_399_drawmode_same_group.png" , "name": "Epoch_399", "link":""},
+{"url": "images/exp_contrastive/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_405_drawmode_same_group.png" , "name": "Epoch_405", "link":""}
+    ],
+
+    [
+		{"url": "images/exp_contrastive_nopretrained/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_299_drawmode_same_group.png" , "name": "Epoch_299", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_399_drawmode_same_group.png" , "name": "Epoch_399", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_470_drawmode_same_group.png" , "name": "Epoch_470", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_557_drawmode_same_group.png" , "name": "Epoch_557", "link":""}
+    ],
+
+    [
+		{"url": "images/exp_contrastive_nopretrained/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_299_drawmode_same_group.png" , "name": "Epoch_299", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_399_drawmode_same_group.png" , "name": "Epoch_399", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_470_drawmode_same_group.png" , "name": "Epoch_470", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_557_drawmode_same_group.png" , "name": "Epoch_557", "link":""}
+    ],
+
+    [
+		{"url": "images/exp_vicreg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_vicreg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_274_drawmode_same_group.png" , "name": "Epoch_274", "link":""},
+{"url": "images/exp_vicreg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_300_drawmode_same_group.png" , "name": "Epoch_300", "link":""},
+{"url": "images/exp_vicreg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_324_drawmode_same_group.png" , "name": "Epoch_324", "link":""},
+{"url": "images/exp_vicreg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_349_drawmode_same_group.png" , "name": "Epoch_349", "link":""},
+// {"url": "images/exp_vicreg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_374_drawmode_same_group.png" , "name": "Epoch_374", "link":""},
+{"url": "images/exp_vicreg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_405_drawmode_same_group.png" , "name": "Epoch_405", "link":""},
+{"url": "images/exp_vicreg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_449_drawmode_same_group.png" , "name": "Epoch_449", "link":""},
+{"url": "images/exp_vicreg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_499_drawmode_same_group.png" , "name": "Epoch_499", "link":""},
+{"url": "images/exp_vicreg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_549_drawmode_same_group.png" , "name": "Epoch_549", "link":""},
+{"url": "images/exp_vicreg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_574_drawmode_same_group.png" , "name": "Epoch_574", "link":""}
+    ],
+
+    [
+		{"url": "images/exp_vicreg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_vicreg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_274_drawmode_same_group.png" , "name": "Epoch_274", "link":""},
+{"url": "images/exp_vicreg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_300_drawmode_same_group.png" , "name": "Epoch_300", "link":""},
+{"url": "images/exp_vicreg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_324_drawmode_same_group.png" , "name": "Epoch_324", "link":""},
+{"url": "images/exp_vicreg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_349_drawmode_same_group.png" , "name": "Epoch_349", "link":""},
+// {"url": "images/exp_vicreg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_374_drawmode_same_group.png" , "name": "Epoch_374", "link":""},
+{"url": "images/exp_vicreg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_405_drawmode_same_group.png" , "name": "Epoch_405", "link":""},
+{"url": "images/exp_vicreg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_449_drawmode_same_group.png" , "name": "Epoch_449", "link":""},
+{"url": "images/exp_vicreg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_499_drawmode_same_group.png" , "name": "Epoch_499", "link":""},
+{"url": "images/exp_vicreg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_549_drawmode_same_group.png" , "name": "Epoch_549", "link":""},
+{"url": "images/exp_vicreg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_574_drawmode_same_group.png" , "name": "Epoch_574", "link":""}
+    ],
+
+    [
+		{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_24_drawmode_same_group.png" , "name": "Epoch_24", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_70_drawmode_same_group.png" , "name": "Epoch_70", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_74_drawmode_same_group.png" , "name": "Epoch_74", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_74_drawmode_same_group.png" , "name": "Epoch_74", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_124_drawmode_same_group.png" , "name": "Epoch_124", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_224_drawmode_same_group.png" , "name": "Epoch_224", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_270_drawmode_same_group.png" , "name": "Epoch_270", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_274_drawmode_same_group.png" , "name": "Epoch_274", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_307_drawmode_same_group.png" , "name": "Epoch_307", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_330_drawmode_same_group.png" , "name": "Epoch_330", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_349_drawmode_same_group.png" , "name": "Epoch_349", "link":""}
+    ],
+
+    [
+		{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_24_drawmode_same_group.png" , "name": "Epoch_24", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_70_drawmode_same_group.png" , "name": "Epoch_70", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_74_drawmode_same_group.png" , "name": "Epoch_74", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_74_drawmode_same_group.png" , "name": "Epoch_74", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_124_drawmode_same_group.png" , "name": "Epoch_124", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_224_drawmode_same_group.png" , "name": "Epoch_224", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_270_drawmode_same_group.png" , "name": "Epoch_270", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_274_drawmode_same_group.png" , "name": "Epoch_274", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_307_drawmode_same_group.png" , "name": "Epoch_307", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_330_drawmode_same_group.png" , "name": "Epoch_330", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_349_drawmode_same_group.png" , "name": "Epoch_349", "link":""}
+    ],
+
+
+    [
+		{"url": "images/wav2vec/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_0_drawmode_same_group.png" , "name": "Layer_0", "link":""},
+{"url": "images/wav2vec/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_5_drawmode_same_group.png" , "name": "Layer_5", "link":""},
+{"url": "images/wav2vec/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_11_drawmode_same_group.png" , "name": "Layer_11", "link":""},
+{"url": "images/wav2vec/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_12_drawmode_same_group.png" , "name": "Layer_12", "link":""},
+{"url": "images/wav2vec/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_17_drawmode_same_group.png" , "name": "Layer_17", "link":""},
+{"url": "images/wav2vec/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_20_drawmode_same_group.png" , "name": "Layer_20", "link":""},
+{"url": "images/wav2vec/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_23_drawmode_same_group.png" , "name": "Layer_23", "link":""}
+    ],
+
+    [
+		{"url": "images/wav2vec/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_0_drawmode_same_group.png" , "name": "Layer_0", "link":""},
+{"url": "images/wav2vec/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_5_drawmode_same_group.png" , "name": "Layer_5", "link":""},
+{"url": "images/wav2vec/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_11_drawmode_same_group.png" , "name": "Layer_11", "link":""},
+{"url": "images/wav2vec/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_12_drawmode_same_group.png" , "name": "Layer_12", "link":""},
+{"url": "images/wav2vec/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_17_drawmode_same_group.png" , "name": "Layer_17", "link":""},
+{"url": "images/wav2vec/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_20_drawmode_same_group.png" , "name": "Layer_20", "link":""},
+{"url": "images/wav2vec/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_23_drawmode_same_group.png" , "name": "Layer_23", "link":""}
+    ],
+
+    [
+		{"url": "images/exp_contrastive_formant_augneg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_11_drawmode_same_group.png" , "name": "Epoch_11", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_24_drawmode_same_group.png" , "name": "Epoch_24", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_74_drawmode_same_group.png" , "name": "Epoch_74", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_95_drawmode_same_group.png" , "name": "Epoch_95", "link":""},
+// {"url": "images/exp_contrastive_formant_augneg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_124_drawmode_same_group.png" , "name": "Epoch_124", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_163_drawmode_same_group.png" , "name": "Epoch_163", "link":""}
+
+    ],
+
+    [
+		{"url": "images/exp_contrastive_formant_augneg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_11_drawmode_same_group.png" , "name": "Epoch_11", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_24_drawmode_same_group.png" , "name": "Epoch_24", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_74_drawmode_same_group.png" , "name": "Epoch_74", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_95_drawmode_same_group.png" , "name": "Epoch_95", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_124_drawmode_same_group.png" , "name": "Epoch_124", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_163_drawmode_same_group.png" , "name": "Epoch_163", "link":""}
+    ],
+
+    [
+		{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_24_drawmode_same_group.png" , "name": "Epoch_24", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_65_drawmode_same_group.png" , "name": "Epoch_65", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_74_drawmode_same_group.png" , "name": "Epoch_74", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_82_drawmode_same_group.png" , "name": "Epoch_82", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_124_drawmode_same_group.png" , "name": "Epoch_124", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_155_drawmode_same_group.png" , "name": "Epoch_155", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_0/test_plot_loader_0_embeddings_cluster_ep_158_drawmode_same_group.png" , "name": "Epoch_158", "link":""}
+    ],
+
+    [
+		{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_24_drawmode_same_group.png" , "name": "Epoch_24", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_65_drawmode_same_group.png" , "name": "Epoch_65", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_74_drawmode_same_group.png" , "name": "Epoch_74", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_82_drawmode_same_group.png" , "name": "Epoch_82", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_124_drawmode_same_group.png" , "name": "Epoch_124", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_155_drawmode_same_group.png" , "name": "Epoch_155", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_embeddings/dataset_1/test_plot_loader_1_embeddings_cluster_ep_158_drawmode_same_group.png" , "name": "Epoch_158", "link":""}
+    ],
+    // -----------------------------------------------------------------------------------------------------------------------------
+    [
+		{"url": "images/exp_uniformity/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_24_drawmode_same_group.png" , "name": "Epoch_24", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_74_drawmode_same_group.png" , "name": "Epoch_74", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_174_drawmode_same_group.png" , "name": "Epoch_174", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_224_drawmode_same_group.png" , "name": "Epoch_224", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_249_drawmode_same_group.png" , "name": "Epoch_249", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_295_drawmode_same_group.png" , "name": "Epoch_295", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_324_drawmode_same_group.png" , "name": "Epoch_324", "link":""}
+    ],
+
+    [
+		{"url": "images/exp_uniformity/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_24_drawmode_same_group.png" , "name": "Epoch_24", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_74_drawmode_same_group.png" , "name": "Epoch_74", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_174_drawmode_same_group.png" , "name": "Epoch_174", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_224_drawmode_same_group.png" , "name": "Epoch_224", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_249_drawmode_same_group.png" , "name": "Epoch_249", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_295_drawmode_same_group.png" , "name": "Epoch_295", "link":""},
+{"url": "images/exp_uniformity/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_324_drawmode_same_group.png" , "name": "Epoch_324", "link":""}
+    ],
+
+    [
+		// {"url": "images/exp_contrastive_same_clip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_249_drawmode_same_group.png" , "name": "Epoch_249", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_299_drawmode_same_group.png" , "name": "Epoch_299", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_335_drawmode_same_group.png" , "name": "Epoch_335", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_349_drawmode_same_group.png" , "name": "Epoch_349", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_416_drawmode_same_group.png" , "name": "Epoch_416", "link":""}
+    ],
+
+    [
+		// {"url": "images/exp_contrastive_same_clip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_249_drawmode_same_group.png" , "name": "Epoch_249", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_299_drawmode_same_group.png" , "name": "Epoch_299", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_335_drawmode_same_group.png" , "name": "Epoch_335", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_349_drawmode_same_group.png" , "name": "Epoch_349", "link":""},
+{"url": "images/exp_contrastive_same_clip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_416_drawmode_same_group.png" , "name": "Epoch_416", "link":""}
+    ],
+
+    [
+		// {"url": "images/exp_contrastive/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_contrastive/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_contrastive/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_249_drawmode_same_group.png" , "name": "Epoch_249", "link":""},
+{"url": "images/exp_contrastive/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_299_drawmode_same_group.png" , "name": "Epoch_299", "link":""},
+{"url": "images/exp_contrastive/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_349_drawmode_same_group.png" , "name": "Epoch_349", "link":""},
+{"url": "images/exp_contrastive/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_399_drawmode_same_group.png" , "name": "Epoch_399", "link":""},
+{"url": "images/exp_contrastive/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_405_drawmode_same_group.png" , "name": "Epoch_405", "link":""}
+    ],
+
+    [
+		// {"url": "images/exp_contrastive/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_contrastive/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_contrastive/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_249_drawmode_same_group.png" , "name": "Epoch_249", "link":""},
+{"url": "images/exp_contrastive/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_299_drawmode_same_group.png" , "name": "Epoch_299", "link":""},
+{"url": "images/exp_contrastive/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_349_drawmode_same_group.png" , "name": "Epoch_349", "link":""},
+{"url": "images/exp_contrastive/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_399_drawmode_same_group.png" , "name": "Epoch_399", "link":""},
+{"url": "images/exp_contrastive/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_405_drawmode_same_group.png" , "name": "Epoch_405", "link":""}
+    ],
+
+    [
+		// {"url": "images/exp_contrastive_nopretrained/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_299_drawmode_same_group.png" , "name": "Epoch_299", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_399_drawmode_same_group.png" , "name": "Epoch_399", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_470_drawmode_same_group.png" , "name": "Epoch_470", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_557_drawmode_same_group.png" , "name": "Epoch_557", "link":""}
+    ],
+
+    [
+		// {"url": "images/exp_contrastive_nopretrained/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_299_drawmode_same_group.png" , "name": "Epoch_299", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_399_drawmode_same_group.png" , "name": "Epoch_399", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_470_drawmode_same_group.png" , "name": "Epoch_470", "link":""},
+{"url": "images/exp_contrastive_nopretrained/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_557_drawmode_same_group.png" , "name": "Epoch_557", "link":""}
+    ],
+
+    [
+		// {"url": "images/exp_vicreg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_vicreg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_274_drawmode_same_group.png" , "name": "Epoch_274", "link":""},
+{"url": "images/exp_vicreg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_300_drawmode_same_group.png" , "name": "Epoch_300", "link":""},
+{"url": "images/exp_vicreg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_324_drawmode_same_group.png" , "name": "Epoch_324", "link":""},
+{"url": "images/exp_vicreg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_349_drawmode_same_group.png" , "name": "Epoch_349", "link":""},
+// {"url": "images/exp_vicreg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_374_drawmode_same_group.png" , "name": "Epoch_374", "link":""},
+{"url": "images/exp_vicreg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_405_drawmode_same_group.png" , "name": "Epoch_405", "link":""},
+{"url": "images/exp_vicreg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_449_drawmode_same_group.png" , "name": "Epoch_449", "link":""},
+{"url": "images/exp_vicreg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_499_drawmode_same_group.png" , "name": "Epoch_499", "link":""},
+{"url": "images/exp_vicreg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_549_drawmode_same_group.png" , "name": "Epoch_549", "link":""},
+{"url": "images/exp_vicreg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_574_drawmode_same_group.png" , "name": "Epoch_574", "link":""}
+    ],
+
+    [
+		// {"url": "images/exp_vicreg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_vicreg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_274_drawmode_same_group.png" , "name": "Epoch_274", "link":""},
+{"url": "images/exp_vicreg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_300_drawmode_same_group.png" , "name": "Epoch_300", "link":""},
+{"url": "images/exp_vicreg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_324_drawmode_same_group.png" , "name": "Epoch_324", "link":""},
+{"url": "images/exp_vicreg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_349_drawmode_same_group.png" , "name": "Epoch_349", "link":""},
+// {"url": "images/exp_vicreg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_374_drawmode_same_group.png" , "name": "Epoch_374", "link":""},
+{"url": "images/exp_vicreg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_405_drawmode_same_group.png" , "name": "Epoch_405", "link":""},
+{"url": "images/exp_vicreg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_449_drawmode_same_group.png" , "name": "Epoch_449", "link":""},
+{"url": "images/exp_vicreg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_499_drawmode_same_group.png" , "name": "Epoch_499", "link":""},
+{"url": "images/exp_vicreg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_549_drawmode_same_group.png" , "name": "Epoch_549", "link":""},
+{"url": "images/exp_vicreg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_574_drawmode_same_group.png" , "name": "Epoch_574", "link":""}
+    ],
+
+    [
+		// {"url": "images/exp_contrastive_reg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_24_drawmode_same_group.png" , "name": "Epoch_24", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_70_drawmode_same_group.png" , "name": "Epoch_70", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_74_drawmode_same_group.png" , "name": "Epoch_74", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_124_drawmode_same_group.png" , "name": "Epoch_124", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_224_drawmode_same_group.png" , "name": "Epoch_224", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_270_drawmode_same_group.png" , "name": "Epoch_270", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_274_drawmode_same_group.png" , "name": "Epoch_274", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_307_drawmode_same_group.png" , "name": "Epoch_307", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_330_drawmode_same_group.png" , "name": "Epoch_330", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_349_drawmode_same_group.png" , "name": "Epoch_349", "link":""}
+    ],
+
+    [
+		// {"url": "images/exp_contrastive_reg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_24_drawmode_same_group.png" , "name": "Epoch_24", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_70_drawmode_same_group.png" , "name": "Epoch_70", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_74_drawmode_same_group.png" , "name": "Epoch_74", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_124_drawmode_same_group.png" , "name": "Epoch_124", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_199_drawmode_same_group.png" , "name": "Epoch_199", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_224_drawmode_same_group.png" , "name": "Epoch_224", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_270_drawmode_same_group.png" , "name": "Epoch_270", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_274_drawmode_same_group.png" , "name": "Epoch_274", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_307_drawmode_same_group.png" , "name": "Epoch_307", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_330_drawmode_same_group.png" , "name": "Epoch_330", "link":""},
+{"url": "images/exp_contrastive_reg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_349_drawmode_same_group.png" , "name": "Epoch_349", "link":""}
+    ],
+
+    [
+		{"url": "images/exp_contrastive_formant_augneg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_11_drawmode_same_group.png" , "name": "Epoch_11", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_24_drawmode_same_group.png" , "name": "Epoch_24", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_74_drawmode_same_group.png" , "name": "Epoch_74", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_95_drawmode_same_group.png" , "name": "Epoch_95", "link":""},
+// {"url": "images/exp_contrastive_formant_augneg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_124_drawmode_same_group.png" , "name": "Epoch_124", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_163_drawmode_same_group.png" , "name": "Epoch_163", "link":""}
+
+    ],
+
+    [
+		// {"url": "images/exp_contrastive_formant_augneg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_11_drawmode_same_group.png" , "name": "Epoch_11", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_24_drawmode_same_group.png" , "name": "Epoch_24", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_74_drawmode_same_group.png" , "name": "Epoch_74", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_95_drawmode_same_group.png" , "name": "Epoch_95", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_124_drawmode_same_group.png" , "name": "Epoch_124", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive_formant_augneg/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_163_drawmode_same_group.png" , "name": "Epoch_163", "link":""}
+    ],
+
+    [
+		// {"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_24_drawmode_same_group.png" , "name": "Epoch_24", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_65_drawmode_same_group.png" , "name": "Epoch_65", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_74_drawmode_same_group.png" , "name": "Epoch_74", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_82_drawmode_same_group.png" , "name": "Epoch_82", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_124_drawmode_same_group.png" , "name": "Epoch_124", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_155_drawmode_same_group.png" , "name": "Epoch_155", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_0/test_plot_loader_0_projections_cluster_ep_158_drawmode_same_group.png" , "name": "Epoch_158", "link":""}
+    ],
+
+    [ 
+		// {"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_0_drawmode_same_group.png" , "name": "Epoch_0", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_24_drawmode_same_group.png" , "name": "Epoch_24", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_49_drawmode_same_group.png" , "name": "Epoch_49", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_65_drawmode_same_group.png" , "name": "Epoch_65", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_74_drawmode_same_group.png" , "name": "Epoch_74", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_82_drawmode_same_group.png" , "name": "Epoch_82", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_99_drawmode_same_group.png" , "name": "Epoch_99", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_124_drawmode_same_group.png" , "name": "Epoch_124", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_149_drawmode_same_group.png" , "name": "Epoch_149", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_155_drawmode_same_group.png" , "name": "Epoch_155", "link":""},
+{"url": "images/exp_contrastive_att_neg_sameclip/clustering_projections/dataset_1/test_plot_loader_1_projections_cluster_ep_158_drawmode_same_group.png" , "name": "Epoch_158", "link":""}
+    ],
+	];
+
+  let sliders_name = [
+    "#hcg-slider-ecapa-vctk", "#hcg-slider-ecapa-vocalset", 
+    "#hcg-slider-unifonly-vctk", "#hcg-slider-unifonly-vocalset", 
+    "#hcg-slider-contunsup-vctk", "#hcg-slider-contunsup-vocalset", 
+    "#hcg-slider-contsup-vctk", "#hcg-slider-contsup-vocalset", 
+    "#hcg-slider-contnopre-vctk", "#hcg-slider-contnopre-vocalset", 
+    "#hcg-slider-vicreg-vctk", "#hcg-slider-vicreg-vocalset", 
+    "#hcg-slider-contreg-vctk", "#hcg-slider-contreg-vocalset", 
+    "#hcg-slider-wav2vec-vctk", "#hcg-slider-wav2vec-vocalset", 
+    "#hcg-slider-contform-vctk", "#hcg-slider-contform-vocalset", 
+    "#hcg-slider-contattform-vctk", "#hcg-slider-contattform-vocalset",
+    "#hcg-slider-unifonly-vctk-proj", "#hcg-slider-unifonly-vocalset-proj", 
+    "#hcg-slider-contunsup-vctk-proj", "#hcg-slider-contunsup-vocalset-proj", 
+    "#hcg-slider-contsup-vctk-proj", "#hcg-slider-contsup-vocalset-proj", 
+    "#hcg-slider-contnopre-vctk-proj", "#hcg-slider-contnopre-vocalset-proj", 
+    "#hcg-slider-vicreg-vctk-proj", "#hcg-slider-vicreg-vocalset-proj", 
+    "#hcg-slider-contreg-vctk-proj", "#hcg-slider-contreg-vocalset-proj", 
+    "#hcg-slider-contform-vctk-proj", "#hcg-slider-contform-vocalset-proj", 
+    "#hcg-slider-contattform-vctk-proj", "#hcg-slider-contattform-vocalset-proj"];
+
+  for (let j = 0; j < sliders_name.length; j++) {
+    slider_name = sliders_name[j];
+    let slider_id = document.querySelector(slider_name);
+
+    // append all images
+    let dots_div = "";
+    let images_div = "";
+    for (let i = 0; i < images_list[j].length; i++) {
+      // if no link without href="" tag
+      let href = (images_list[j][i].link == "" ? "":' href="'+images_list[j][i].link+'"');
+      images_div += '<a'+href+' class="hcg-slides"'+(i === 0 ? ' style="display:block"':'')+'>'+
+              '<span class="hcg-slide-number">'+(i+1)+'/'+images_list[j].length+'</span>'+
+              '<img src="'+images_list[j][i].url+'" alt="'+images_list[j][i].name+'">'+
+              '<span class="hcg-slide-text">'+images_list[j][i].name+'</span>'+
+            '</a>';
+      dots_div += '<span class="hcg-slide-dot'+(i === 0 ? ' dot-active':'')+'" data-id="'+i+'"></span>';
+    }
+    slider_id.querySelector(".hcg-slider-body").innerHTML = images_div;
+    slider_id.querySelector(".hcg-slide-dot-control").innerHTML = dots_div;
+
+    let slide_index = 0;
+
+    let images = slider_id.querySelectorAll(".hcg-slides");
+    let dots = slider_id.querySelectorAll(".hcg-slide-dot");
+    let prev_button = slider_id.querySelector(".hcg-slide-prev");
+    let next_button = slider_id.querySelector(".hcg-slide-next");
+
+    function showSlides() {
+      if (slide_index > images.length-1) {
+        slide_index = 0;
+      }
+      if (slide_index < 0) {
+        slide_index = images.length-1;
+      }
+      for (let i = 0; i < images.length; i++) {
+        images[i].style.display = "none";
+        dots[i].classList.remove("dot-active");
+        if (i == slide_index) {
+          images[i].style.display = "block";
+          dots[i].classList.add("dot-active");
+        }
+      }
+    }
+
+    prev_button.addEventListener("click", function(event) {
+      event.preventDefault();
+      slide_index--;
+      showSlides();
+    }, false);
+
+    next_button.addEventListener("click", function(event){
+      event.preventDefault();
+      slide_index++;
+      showSlides();
+    }, false);
+
+    function dot_click(event) {
+      slide_index = event.target.dataset.id;
+      showSlides();
+    }
+
+    for (let i = 0; i < dots.length; i++) {
+      dots[i].addEventListener("click", dot_click, false);
+    }
+}
+})();
+</script>
+
+                                    
+</body>
+</html>
+
+
+<!-- <html lang="en"> -->
+<!-- <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        .column {
+          float: left;
+          width: 50%;
+          padding: 0px;
+        }
+        
+        /* Clearfix (clear floats) */
+        .row::after {
+          content: "";
+          clear: both;
+          display: table;
+        }
+        </style>
+</head>
+<body>
+    <h1>ssl_sing_id</h1>
+    <p>lorem ipsum dolor sit amet, consectetur adip</p>
+    <p>lorem ipsum dolor sit amet, consectetur adip</p>
+    <h1>Gif</h1>
+<!--     <img src="images/testgif.gif"> -->
+
+<!--     <h3>ECAPA-TDNN</h3>
+    <div class="row">
+        <div class="column">
+          <img src="images/testgif.gif" alt="Snow" style="width:100%">
+          <img src="images/testgif.gif" alt="Snow" style="width:100%">
+          <img src="images/testgif.gif" alt="Snow" style="width:100%">
+        </div>
+        <div class="column">
+          <img src="images/testgif.gif" alt="Forest" style="width:100%">
+          <img src="images/testgif.gif" alt="Snow" style="width:100%">
+          <img src="images/testgif.gif" alt="Snow" style="width:100%">
+        </div>
+    </div> -->
+<!--     <h3>GE2E</h3>
+        <div class="row">
+        <div class="column">
+          <img src="images/testgif.gif" alt="Snow" style="width:100%">
+        </div>
+        <div class="column">
+          <img src="images/testgif.gif" alt="Forest" style="width:100%">
+        </div>
+    </div>
+    <h3>CONT</h3>
+        <div class="row">
+        <div class="column">
+          <img src="images/testgif.gif" alt="Snow" style="width:100%">
+        </div>
+        <div class="column">
+          <img src="images/testgif.gif" alt="Forest" style="width:100%">
+        </div>
+    </div>
+    <h3>UNIF</h3>
+        <div class="row">
+        <div class="column">
+          <img src="images/testgif.gif" alt="Snow" style="width:100%">
+        </div>
+        <div class="column">
+          <img src="images/testgif.gif" alt="Forest" style="width:100%">
+        </div>
+    </div>
+    <h3>VICREG</h3>
+        <div class="row">
+        <div class="column">
+          <img src="images/testgif.gif" alt="Snow" style="width:100%">
+        </div>
+        <div class="column">
+          <img src="images/testgif.gif" alt="Forest" style="width:100%">
+        </div>
+    </div> -->
+
+<!-- </body>
+</html> -->
+
+
